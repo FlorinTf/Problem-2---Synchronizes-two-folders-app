@@ -5,9 +5,6 @@ from distutils.dir_util import copy_tree
 import datetime
 import csv
 
-source='C:\\Users\\Celulita\\Desktop\\source\\'
-replica='C:\\Users\\Celulita\\Desktop\\replica\\'
-
 def write_file(file,action,source,replica):
     date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
     filenames = [[date,action,file,source,replica]]
@@ -24,7 +21,7 @@ def write_file(file,action,source,replica):
             writer.writerows(filenames)
 
 
-# sync file from dir source to dir replica. Time_loop = the minute interval to sync
+# sync file from source folder to replica folder. Time_loop = minute interval to sync
 def sync_file(source,replica,time_loop):
     while True:
         files_surces = os.listdir(source)
@@ -65,7 +62,7 @@ def sync_file(source,replica,time_loop):
         time.sleep(time_loop*60)
 
 
-sync_file('C:\\Users\\Celulita\\Desktop\\source\\','C:\\Users\\Celulita\\Desktop\\replica\\',2)
+sync_file('C:\\Users\\Users\\Desktop\\source\\','C:\\Users\\Users\\Desktop\\replica\\',2)
 
 
 
